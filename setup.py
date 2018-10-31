@@ -23,7 +23,7 @@ with io.open('HISTORY.rst', 'r', encoding='utf8') as f:
     HISTORY = f.read()
 
 REQUIREMENTS = [
-    "fs~=2.0.7",
+    "fs~=2.1",
     "webdavclient2",
     "python-dateutil"
 ]
