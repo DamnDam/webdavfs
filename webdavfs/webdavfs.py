@@ -1,4 +1,5 @@
 # coding: utf-8
+import os
 
 import io
 import six
@@ -247,6 +248,8 @@ class WebDAVFS(FS):
             try:
                 info = self.client.info(_path.encode('utf-8'))
                 info_dict = self._create_info_dict(info)
+                if not info_dict['basic']['name']:
+                    info_dict['basic']['name'] = os.path.basename(os.path.normpath(path))
                 if self.client.is_dir(_path.encode('utf-8')):
                     info_dict['basic']['is_dir'] = True
                     info_dict['details']['type'] = ResourceType.directory
